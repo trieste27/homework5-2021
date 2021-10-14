@@ -60,9 +60,13 @@ nav a{
   color: black;
   font-weight: bold;
   /* Requirement 1 code here*/
+  text-decoration: none;
 }
 
   /* Requirement 2 code here*/
+nav a:hover{
+  text-decoration: underline;
+}
 
 
 
@@ -73,20 +77,34 @@ nav a{
   -webkit-transition: top 1s ease-out;
   transition: top 1s ease-out;
   z-index: 1;
+  text-decoration: none;
 
   /* Requirement 3a code here*/
-  
+  position: absolute;
+  top: -40px;
 }
 
 /* Requirement 3b code here*/
+.skip a:focus{
+  top: 0;
+}
 
 
 /* Requirement 4 code here*/
+:focus{
+  border: 2px solid;
+}
 
 
 
 .container{
-  /* Requirement 5 code here*/
+  /* Requirement 5 code here
+  three columns: 1fr 5fr 1fr
+  gap 15px btwn rows use grid-row-gap*/
+  display: grid;
+  grid-template-columns: 1fr 5fr 1fr;
+  grid-template-columns: repeat(5, auto);
+  grid-row-gap: 15px;
 
 }
 
@@ -100,29 +118,63 @@ header{
   height: 400px; /* Parallax effect */
 
   /* YOUR CODE HERE; */
+  grid-column: 1/-1;
+  grid-row: 1 / span 1;
+  background-image: url('../images/header.jpg');
+  background-repeat: no-repeat;
 }
 
 
 
 .about-image{
-  
+  grid-column: 1 / -1;
+  max-height: 700px;
+  overflow: hidden;
+  grid-row: 2 / span 1;
 }
 
 .about{
- 
+  top: -100;
+  grid-column: 2 / span 1;
+  grid-row: 2 / span 1;
 }
 
 .method-image{
- 
+ grid-column: 1 / -1;
+ max-height: 700px;
+ overflow: hidden;
+ grid-row: 3 / span 1;
 }
 
 .method{
-  
+  grid-column: 2 / span 1;
+  grid-row: 3 / span 1;
 }
 
 /* You need to write some of your own selectors here */
+.clients{
+  grid-column: 2 / span 1;
+  grid-row: 4 / span 1;
+}
 
+.clients-image{
+  grid-column: 1 / -1;
+  max-height: 700px;
+  overflow: hidden;
+  grid-row: 4 / span 1;
+}
 
+.contact{
+  grid-column: 2 / span 1;
+  grid-row: 5 / span 1;
+}
+
+.contact-image{
+  grid-column: 1 / -1;
+  max-height: 700px;
+  overflow: hidden;
+  grid-row: 5 / span 1;
+}
 
 .text-block{
   background-color: rgba(255, 255, 255, .8);
@@ -130,7 +182,7 @@ header{
   padding: 30px;
 
   /* Your code here */
-
+  align-self: center;
 }
 
 @media screen and (min-width: 800px){
@@ -138,44 +190,44 @@ header{
     padding: 30px 0;
 
     /* Your code here */
+    text-align: right;
   }
 
   .container{
-   
+   grid-template-columns: 50px auto 500px auto 50px;
+   grid-template-rows: repeat(5, 400px)
   }
 
-  
-
   .about-image{
-  
+    grid-column: 2 / span 2;
   }
 
   .about{
-    
+    grid-column: 3 / span 2;
   }
 
   .method-image{
-    
+    grid-column: 3 / span 2;
   }
 
   .method{
-   
+    grid-column: 2 / span 2; 
   }
 
   .clients-image{
-    
+    grid-column: 2 / span 2;
   }
 
   .clients{
-    
+    grid-column: 3 / span 2;
   }
 
   .contact-image{
-    
+    grid-column: 3 / span 2;
   }
 
   .contact{
-    
+    grid-column: 2 / span 2;
   }
 
 }
