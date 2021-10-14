@@ -103,7 +103,7 @@ nav a:hover{
   gap 15px btwn rows use grid-row-gap*/
   display: grid;
   grid-template-columns: 1fr 5fr 1fr;
-  grid-template-columns: repeat(5, auto);
+  grid-template-rows: repeat(5, auto);
   grid-row-gap: 15px;
 
 }
